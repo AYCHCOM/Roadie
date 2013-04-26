@@ -98,6 +98,12 @@ module Roadie
           format.text { render :text => 'Hello Text' }
         end
       end
+
+      def override_roadie_enabled
+        mail(:subject => "HTML email", :roadie_enabled => false) do |format|
+          format.html { render :text => 'Hello HTML' }
+        end
+      end
     end
 
     let(:provider) { double("asset provider", :all => '') }
@@ -124,6 +130,11 @@ module Roadie
         Roadie.stub :enabled? => false
         Roadie.should_not_receive(:inline_css)
         mailer.singlepart_html.body.decoded.should == 'Hello HTML'
+      end
+
+      it "does not inline css when :roadie_enabled is not true" do
+        Roadie.should_not_receive(:inline_css)
+        mailer.override_roadie_enabled.body.decoded.should == 'Hello HTML'
       end
     end
 

@@ -8,4 +8,5 @@ group :guard do
   # Guard for Mac
   gem 'rb-fsevent', '>= 0.9.0.pre5'
   gem 'growl'
+  gem 'debugger'
 end

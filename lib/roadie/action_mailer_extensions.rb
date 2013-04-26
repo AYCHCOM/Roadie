@@ -34,7 +34,7 @@ module Roadie
       # Rails 4
       def collect_responses_with_inline_styles(headers, &block)
         responses = collect_responses_without_inline_styles(headers, &block)
-        if Roadie.enabled?
+        if Roadie.enabled? && headers[:roadie_enabled]
           responses.map { |response| inline_style_response(response) }
         else
           responses
@@ -44,7 +44,7 @@ module Roadie
       # Rails 3
       def collect_responses_and_parts_order_with_inline_styles(headers, &block)
         responses, order = collect_responses_and_parts_order_without_inline_styles(headers, &block)
-        if Roadie.enabled?
+        if Roadie.enabled? && headers[:roadie_enabled]
           [responses.map { |response| inline_style_response(response) }, order]
         else
           [responses, order]

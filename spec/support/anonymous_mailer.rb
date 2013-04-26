@@ -2,6 +2,7 @@
 # is anonymous. Subclassed in the specs whenever a new mailer is
 # needed
 class AnonymousMailer < ActionMailer::Base
+  default :roadie_enabled => true
   class << self
     # Pretty much like super, but returns "anonymous" when no
     # name is set
