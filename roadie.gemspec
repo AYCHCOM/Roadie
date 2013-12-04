@@ -16,11 +16,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'nokogiri', '~> 1.4.7'
   s.add_dependency 'css_parser', '~> 1.3.4'
-  s.add_dependency 'actionmailer', '~> 3.2.13'
+  s.add_dependency 'actionmailer'
   s.add_dependency 'sprockets'
 
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rails', '~> 3.2.13'
+  s.add_development_dependency 'rails'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rspec-rails'
 
